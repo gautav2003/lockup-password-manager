@@ -212,6 +212,14 @@
         const btn = document.querySelector('button[type="submit"]');
         btn.disabled = true;
 
+        const data = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            confirm_password: document.getElementById('confirmPassword').value,
+            master_key: document.getElementById('maskeyKey').value 
+        } ;
+
         
     }
 </script>     
