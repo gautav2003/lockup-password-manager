@@ -203,5 +203,15 @@
     </div>
 </div>
 
+{% endblock %}
 
-     
+{% block extra_scripts %}
+<script>
+    async function handleSignup(event) {
+        event.preventDefault();
+        const btn = document.querySelector('button[type="submit"]');
+        btn.disabled = true;
+
+        
+    }
+</script>     
