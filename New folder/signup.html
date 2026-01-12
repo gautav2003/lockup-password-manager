@@ -227,7 +227,27 @@
                 body: JSON.stringify(data)
             });
            
-            
+           const result = await response.json();
+           
+           if (result.success) {
+            showAlert(result.message, 'success');
+            // Store user data and email for verifaction
+            localStorage.setItem('user id', result.user_id);
+            localStorage.setItem('user_email', result.email);
+
+            setTimeout(() => {
+                window.location.href = '/login';
+            }, 2000);
+           } else {
+            showAlert(result.message, 'error');
+           }
+        } catch (error) {
+            showAlert(' an error occurred. Please try again.','error');
+            console.error(error);
+        } finally {
+            btn.disabled = false;
         }
     }
+
+    
 </script>     
