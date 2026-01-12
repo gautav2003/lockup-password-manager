@@ -249,5 +249,12 @@
         }
     }
 
-    
+    async function checkPasswordStrength() {
+        const password = document.getElementById('password').value;
+        if (!password) {
+            document.getElementById('passwordStrength').style.display = 'none';
+            return;
+        }
+        
+    }
 </script>     
