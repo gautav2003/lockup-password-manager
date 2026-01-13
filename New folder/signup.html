@@ -282,6 +282,25 @@
             console.error('Error checking password strength:', error);
         }
     }  
-
     
-</script>     
+    async function generatePassord() {
+        try {
+            const response = await fetch('/api/generate-password?length=16',{
+                method: 'GET',
+                headers: { 'Content-type': 'application/json' }
+            });
+
+            const result = await response.json();
+            const passwordInput = document.getElementById('password');
+            passwordInput.value = result.password;
+
+            // Trigger strength check
+            checkPasswordStrength();
+            showAlert('Password generated successfully!', 'success');
+        } catch (error) {
+            showAlert('Error generating password', 'error');
+            console.error(error);
+        }
+    }
+</script>
+{% endblock %}     
