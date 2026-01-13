@@ -256,5 +256,32 @@
             return;
         }
         
-    }
+        try {
+            const result = await response.json();
+            const strengthDiv = document.getElementById('passwordStrength');
+            const strengthFill = document.getElementById('strengthFill');
+            const strengthText = document.getElementById('strengthText');
+            const suggestions = document.getElementById('suggestions');
+            const suggestionsList = document.getElementById('suggestionsList');
+
+            strengthDiv.style.display = 'block';
+
+            // Update strength bar
+            strengthFill.className = `strength-fill ${result.strength.toLowerCase()}`;
+            strengthText.className = `strength-text ${result.strength.toLowerCase()}`;
+            strengthText.textContent = result.strength + 'Password';
+
+            // Update suggestions
+            if (result.feedback.length > 0) {
+                suggestions.style.display = 'block';
+                suggestionsList.innerHTML = result.feedback.map(f => `<li>Add ${f}</li>`).join('');
+            } else {
+                suggestions.style.display = 'none';
+            }
+        } catch (error) {
+            console.error('Error checking password strength:', error);
+        }
+    }  
+
+    
 </script>     
