@@ -389,7 +389,18 @@
                  <button class="tab-btn active" onclick="switchToLogin()">Login</button>
                  <button class="tab-btn" onclick="switchToSignup()">Sign up</button>
              </div>
-        
+            <!-- LOGIN FORM -->
+            <div id="Login" class="tab-content active">
+                <h1 class="form-title">login</h1>
+                <form onsubmit="submitlogin(event)">
+                    <div class="form-group">
+                        <label>Username or Email</label>
+                        <input type="text" id="login_username" required placeholder="Enter your username or email">
+                    </div>
+
+                    
+                </form>
+            </div>
         </div>
 
 
