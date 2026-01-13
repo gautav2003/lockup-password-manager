@@ -234,7 +234,19 @@
             display: block;
         }
 
-        
+        .suggestion-item {
+            margin: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .suggestion-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
     </style>
 </head>
 </html>
