@@ -633,7 +633,26 @@
                 strengthBar.classList.add('fair');
                 strengthValue.classList.add('fair');
                 strengthValue.textContent = 'Fair';
+             } else if (strength <4) {
+                strengthBar.classList.add('good');
+                strengthValue.classList.add('good');
+                strengthValue.textContent = 'Good';
+             } else {
+                strengthBar.classList.add('strong');
+                strengthValue.classList.add('strong');
+                strengthValue.textContent = 'Excellent';
              }
         }
+
+        function updateSuggestion(elementId, isMet) {
+            const element = document.getElementById(elementId);
+            if(isMet) {
+                element.classList.remove('missing');
+            } else {
+                element.classList.add('missing');
+            }
+        }
+
+        
     </script>
 </body>
