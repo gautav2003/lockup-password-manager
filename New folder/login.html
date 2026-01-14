@@ -771,7 +771,19 @@
             }
         }
 
-        
+        async function submitReset(e) {
+            e.preventDefault();
+            const code = document.getElementById('reset_code').value;
+            const password = document.getElementById('reset_password').value;
+            const confirm = document.getElementById('reset_confirm').value;
+
+            if (password !== confirm) {
+                alert('Password do not match!');
+                return;
+            }
+
+            
+        }
     </script>
 </body>
  
