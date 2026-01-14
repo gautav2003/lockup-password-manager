@@ -736,9 +736,19 @@
                     })
                 });
 
-                
+                const data = await response.json();
+                if (data.success) {
+                    alert('Email verified You can now login.');
+                    switchToLogin();
+                }else {
+                    alert(data.message || 'Verification failed');
+                }
+            } catch (error) {
+                alert(' An error occurred: ' + error.message);
             }
         }
+
+        
     </script>
 </body>
  
