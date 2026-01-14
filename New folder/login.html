@@ -616,6 +616,15 @@
             updateSuggestion('numberCheck', hasNumber);
             updateSuggestion('specialCheck', hasSpecial);
 
+            suggestions.classList.add('show');
+
+            let strength = 0;
+            if (hasLength) strength++;
+            if (hasUppercase) strength++;
+            if (hasLowercase) strength++;
+            if (hasNumber) strength++;
+            if (hasSpecial) strength++;
+
             
         }
     </script>
