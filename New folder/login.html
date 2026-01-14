@@ -435,6 +435,17 @@
                         <label>Password</label>
                         <input type="password" id="signup_password" required placeholder="Create a password" oninput="checkPasswordStrength()">
                     
+                        <!--Password Strength Indicator -->
+                        <div class="strength-meter">
+                            <div class="strength-bar">
+                                <div class="strength-bar-fill" id="strengthBar"></div>
+                            </div>
+                            <div class="strength-text">
+                                <span class="strength-label">Password Strength:</span>
+                                <span class="strength-value" id="strengthValue">Weak</span>
+                            </div>
+                        </div>
+
                         
                     </div>
                 </form>
