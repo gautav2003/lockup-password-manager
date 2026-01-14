@@ -793,9 +793,17 @@
                     })
                 });
 
-                
+                const data = await response.json();
+                if (data.success) {
+                    alert('Password reset successful');
+                    switchToLogin();
+                } else {
+                    alert(data.message || 'Password reset failed');
+                }
+            } catch (error) {
+                alert('An error occurred: ' + error.message);
             }
         }
     </script>
 </body>
- 
+</html> 
