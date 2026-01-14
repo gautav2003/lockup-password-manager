@@ -726,7 +726,18 @@
                 return;
             }
 
-            
+            try {
+                const response = await fetch('/verify-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        user_id: currentUserId,
+                        code: code
+                    })
+                });
+
+                
+            }
         }
     </script>
 </body>
