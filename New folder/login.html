@@ -748,7 +748,20 @@
             }
         }
 
-        
+        async function submitForgot(e) {
+            e.preventDefault();
+            const email = document.getElementById('forgot_email').value;
+
+            try {
+                const response = await fetch('/forgot-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({email})
+                });
+
+                
+            }
+        }
     </script>
 </body>
  
