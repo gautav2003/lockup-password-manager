@@ -716,7 +716,18 @@
             }
         }
         
-        
+        async function submitVerification(e) {
+            e.preventDefault();
+            const code = document.getElementById('verify_code').value;
+
+            if (!currentUserId) {
+                alert('Session expired. Please sign up again.');
+                switchToSignup();
+                return;
+            }
+
+            
+        }
     </script>
 </body>
  
