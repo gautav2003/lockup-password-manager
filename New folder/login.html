@@ -625,7 +625,15 @@
             if (hasNumber) strength++;
             if (hasSpecial) strength++;
 
-            
+            if (strength < 2) {
+                strengthBar.classList.add('weak');
+                strengthValue.classlist.add('weak');
+                strengthValue.textContent = 'Weak';
+            } else if (strength < 3) {
+                strengthBar.classList.add('fair');
+                strengthValue.classList.add('fair');
+                strengthValue.textContent = 'Fair';
+             }
         }
     </script>
 </body>
