@@ -413,7 +413,21 @@
                 <div class="divider">
                     <span>Don't have an account?</span>
                 </div>
+
                 <button class="btn btn-secondary" onclick="switchToSignup()">Creat Account</button>           
+            </div>
+
+            <!-- SIGNUP FORM -->
+            <div id="signup" class="tab-content">
+                <h1 class="form-title">Sign Up</h1>
+                <form onsubmit="submitSignup(event)">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="signup_username" required placeholder="Enter a username">
+                    </div>
+
+                    
+                </form>
             </div>
         </div>
 
