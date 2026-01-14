@@ -484,7 +484,17 @@
                 <div class="success-message">
                     Account created! Check your email for 6-digit verifaction code.
                 </div>
-                
+
+                <p class="info-text">Enter the verifaction code ent to your email</p>
+
+                <form onsubmit="submitVerification(event)">
+                    <div class="form-group">
+                        <label>Verification Code</label>
+                        <input type="text" id="verify_code" required placeholder="Enter 6-digit code" maxlength="6">
+                    </div>
+
+                    
+                </form>
             </div>
         </div>
 
