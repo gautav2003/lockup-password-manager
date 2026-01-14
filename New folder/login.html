@@ -659,7 +659,13 @@
             const username = document.getElementById('login_username').value;
             const password = document.getElementById('login_password').value;
 
-            
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/jason' },
+                    body: JSON.stringify({username, password})
+                });
+            }
         }
     </script>
 </body>
