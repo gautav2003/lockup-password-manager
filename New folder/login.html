@@ -435,7 +435,7 @@
                         <label>Password</label>
                         <input type="password" id="signup_password" required placeholder="Create a password" oninput="checkPasswordStrength()">
                     
-                        <!--Password Strength Indicator -->
+                        <!-- Password Strength Indicator -->
                         <div class="strength-meter">
                             <div class="strength-bar">
                                 <div class="strength-bar-fill" id="strengthBar"></div>
@@ -445,9 +445,18 @@
                                 <span class="strength-value" id="strengthValue">Weak</span>
                             </div>
                         </div>
-
                         
+                        <!-- Password Suggestions -->
+                         <div class="strength-suggestions" id="strength-suggestions">
+                             <div class="suggestion-item" id="lengthCheck">At least 8 characters</div>
+                             <div class="suggestion-item" id="uppercaseCheck">Uppercase letter (A-Z)</div>
+                             <div class="suggestion-item" id="lowercaseCheck">Lowercase letter (a-z)</div>
+                             <div class="suggestion-item" id="numberCheck">Number (0-9)</div>
+                             <div class="suggestion-item" id="specialCheck">Special character (!@#$%^&*)</div>
+                         </div>
                     </div>
+
+                    
                 </form>
             </div>
         </div>
