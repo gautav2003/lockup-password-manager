@@ -516,7 +516,19 @@
                 <button class="btn btn-secondary" onclick="switchToLogin()">Back to Login</button>
             </div>
 
-            
+            <!-- RESET PASSWORD FORM -->
+            <div id="reset" class="tab-content">
+                <h1 class="form-title">Enter Rest Code</h1>
+
+                <form onsubmit=" submitRest(event)">
+                    <div class="form-group">
+                        <label>Verification Code</label>
+                        <input type="text" id="reset_code" required placeholder="Enter 6-digit code">
+                    </div>
+
+                    
+                </form>
+            </div>
         </div>
 
 
