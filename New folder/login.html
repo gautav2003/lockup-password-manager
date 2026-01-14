@@ -586,6 +586,17 @@
             document.getElementById('rest').classList.add('active');
         }
 
-        
+        // Password Strengh Checker
+        function checkPasswordStrength() {
+            const password = document.getElementById('signup_password').value;
+            const strengthBar = document.getElementById('strengthBar');
+            const strengthValue = document.getElementById('strengthValue');
+            const suggestions = document.getElementById('strengthSuggestions');
+
+            strengthBar.className = 'strength-bar-fill';
+            strengthValue.className = 'strength-value';
+
+            
+        }
     </script>
 </body>
