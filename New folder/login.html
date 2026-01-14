@@ -704,9 +704,19 @@
                     })
                 });
 
-                
+                const data = await response.json();
+                if (data.success) {
+                    currentUserId = data.user_id;
+                    switchToVerification();
+                } else {
+                    alert(data.message || 'Signup failed');
+                }
+            } catch (error) {
+                alert('An error occurred: ' + error.message);
             }
-        } 
+        }
+        
+        
     </script>
 </body>
  
