@@ -559,6 +559,18 @@
             buttons.forEach(btn =>btn.classList.remove('active'));
         }
 
+        function switchToLogin() {
+            hideAllTabs();
+            document.getElementById('login').classList.add('active');
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        }
+
+        function switchToSignup() {
+            hideAllTabs();
+            document.getElementById('signup').classList.add('active');
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        }
+
         
     </script>
 </body>
