@@ -596,6 +596,14 @@
             strengthBar.className = 'strength-bar-fill';
             strengthValue.className = 'strength-value';
 
+            if (password.length === 0) {
+                strengthBar.className = 'strength-bar-fill';
+                strengthValue.textContent = 'Weak';
+                strengthValue.className = 'strength-value weak';
+                suggestions.classList.remove('show')
+                return;
+            }
+
             
         }
     </script>
