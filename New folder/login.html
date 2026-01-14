@@ -691,7 +691,21 @@
                 return;
             }
 
-            
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        username,
+                        email,
+                        password,
+                        confirm_password: confirm,
+                        master_key: master
+                    })
+                });
+
+                
+            }
         } 
     </script>
 </body>
