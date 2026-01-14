@@ -665,7 +665,19 @@
                     headers: {'Content-Type': 'application/jason' },
                     body: JSON.stringify({username, password})
                 });
+
+                const data = await response.json();
+                if (data.success) {
+                    alert('Login successful!');
+                    window.location.href = '/dashboard';
+                } else {
+                    alert(data.message || 'Login failed');
+                }
+            } catch (error) {
+                alert('An error ocurred: ' + error.message);
             }
         }
+
+        
     </script>
 </body>
