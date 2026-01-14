@@ -544,5 +544,21 @@
         </div>
     </div>
     
-    
+    <script>
+        let currentUserId = null;
+
+        // Tab switching functions
+        function hideAllTabs() {
+            document.getElementById('login').classList.remove('active');
+            document.getElementById('signup').classList.remove('active');
+            document.getElementById('verification').classList.remove('active');
+            document.getElementById('forgot').classList.remove('active');
+            document.getElementById('reset').classList.remove('active');
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn =>btn.classList.remove('active'));
+        }
+
+        
+    </script>
 </body>
