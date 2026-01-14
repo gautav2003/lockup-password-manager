@@ -759,9 +759,19 @@
                     body: JSON.stringify({email})
                 });
 
-                
+                const data = await response.json();
+                if (data.success) {
+                    alert('Reset code sent to your email!');
+                    switchToReset();
+                } else {
+                    alert(data.message || 'Failed to send rest code');
+                }
+            } catch (error) {
+                alert('An error occurred: ' + error.message);
             }
         }
+
+        
     </script>
 </body>
  
