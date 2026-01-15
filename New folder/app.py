@@ -28,4 +28,14 @@ if request.method == 'POST':
     if len(master_key) < 4:
         return jsonify({'success' : False, 'message' : 'Master key must be at least 4 characters'}), 400
     
+    # Check if user exists
+    if User.query.filter_by(username=username).first():
+        return jsonify({'success' : False, 'message' : 'Username already exists'}), 400
     
+    if User.query.filter_by(email=email).first():
+        return jsonify({'success' : False, 'message' : 'Email already registered'}), 400
+    
+    # Create verification code
+    verification_code = generate_verification_code()
+    
+     
