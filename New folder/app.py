@@ -37,5 +37,18 @@ if request.method == 'POST':
     
     # Create verification code
     verification_code = generate_verification_code()
+
+    # Create user
+    user = User(
+        username=username,
+        email=email,
+        password_hash=generate_password_hash(password),
+        master_key_hash=generate_password_hash(password),
+        verification_code=verification_code,
+        verification_code_expires=datetime.utcnow() + timedelta(hours=1)
+    ) 
+
+    db.session.add(user)
+    db.session.commit()
+
     
-     
