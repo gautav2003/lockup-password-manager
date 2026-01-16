@@ -131,5 +131,15 @@ def forgot_password():
             </body>
         </html>
         """
+
+        send_email(email, 'Lockup - Reset Your Password', email_body, is_html=True)
+
+        return jsonify({
+            'success': True,
+            'message': 'Reset code sent to your email',
+            'email': email
+        }), 200
+
+        return render_template('forgot_password.html')
         
                                                 
