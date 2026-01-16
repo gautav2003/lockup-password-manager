@@ -51,4 +51,20 @@ if request.method == 'POST':
     db.session.add(user)
     db.session.commit()
 
+    #Send verification email
+    email_body = f"""
+    <html>
+        <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+             <div style="max-width: 500px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow:v0 2px 10px rgba(0,0,0,0.1);">
+                 <h2 style="color: #333; text-align: center; ">Welcome to Lockup</h2>
+                 <p style="color: #666; font-size: 16px; ">Your verification code is:</p>
+                 <p style="background-color: #f0f0f0; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; color: #FF4444; border-radius: 5px; letter-spacing: 5px;">
+                     {verification_code}
+                </p>
+                <p style="color: #999; font-size: 14px; text-align: center;">This code expries in 1 hour.</p> 
+            </div>
+        </body>
+    </html>
+    """
     
+                
