@@ -94,4 +94,9 @@ def verify_email():
     if user.verufication_code_expires < datetime.utcnow():
         return jsonify({'success': False, 'message': 'Verification code expired'}), 400
     
-    
+    user.is_verified = True
+    user.verification_code = None
+    db.session.commit()
+
+    return jsonify({'succss': True, 'message': 'Email verified successfully'}), 200
+
