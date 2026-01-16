@@ -78,3 +78,11 @@ if request.method == 'POST':
 
 return render_template('signup.html')
 
+@app.route('/verify-email', methods=['POST'])
+def verify_email():
+    data = request.get_json()
+    user_id = data.get('user_id')
+    code = data.get('code')
+
+    user = User.query.get(user_id)
+    
