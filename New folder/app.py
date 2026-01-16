@@ -100,3 +100,13 @@ def verify_email():
 
     return jsonify({'succss': True, 'message': 'Email verified successfully'}), 200
 
+@app.route('/forgot-password', methods=['GET', 'POST'])
+def forgot_password():
+    if request.method == 'POST':
+        data = request.get_json()
+        email = data.get('email', '').strip()
+
+        user = User.query.filter_by(email=email).first()
+        if not user:
+            return jsonify({'success': False, 'message': 'Email not found'}), 404
+        
