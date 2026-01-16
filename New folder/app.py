@@ -110,3 +110,10 @@ def forgot_password():
         if not user:
             return jsonify({'success': False, 'message': 'Email not found'}), 404
         
+        # Generate verification code
+        verification_code = grenerate_verification_code()
+        user.verification_code = verification_code
+        user.verification_code_exprires = datetime.utcnow() + timedelta( hours=1
+        db.session.commit()
+        
+                                                                       
