@@ -144,9 +144,20 @@ def forgot_password():
 
 @app.route('/reset-password', methods=['POST'])
 def reset_ password():
-data = request.get_json()
-email = data.get('email', '').strip()
-code = data.get('code', '')
-new_password = data.get('new_password', '')
-confirm_password = data.get('confirm_password', '')
+    data = request.get_json()
+    email = data.get('email', '').strip()
+    code = data.get('code', '')
+    new_password = data.get('new_password', '')
+    confirm_password = data.get('confirm_password', '')
 
+    if new_password != confirm_password:
+        return jsonify({'success': False, 'message': 'Passwords do not match'}), 400
+
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({'success': False, 'message': 'User not found'}), 404
+
+    if user.verification_code != code:
+        return jsonify({'success': False, 'massage': 'Invalid verification code'}), 400
+        
+                
