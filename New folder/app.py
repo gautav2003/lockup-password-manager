@@ -141,5 +141,12 @@ def forgot_password():
         }), 200
 
         return render_template('forgot_password.html')
-        
-                                                
+
+@app.route('/reset-password', methods=['POST'])
+def reset_ password():
+data = request.get_json()
+email = data.get('email', '').strip()
+code = data.get('code', '')
+new_password = data.get('new_password', '')
+confirm_password = data.get('confirm_password', '')
+
