@@ -115,5 +115,21 @@ def forgot_password():
         user.verification_code = verification_code
         user.verification_code_exprires = datetime.utcnow() + timedelta( hours=1
         db.session.commit()
+
+        # Send email
+        email_body = f"""
+        <html>
+            <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+                <div style="max-width: 500px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px reba(0,0,0,0.1);">
+                    <h2 style="color: #333; text-align: center;">Reset Your Password</h2>
+                    <p style="color: #666; font-size: 16px;">Your password reset code is:</p>
+                    <p style="background-color: #f0f0f0; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; color: #FF4444; border-radius: 5px; letter-spacing: 5px;">
+                         {verification_code}
+                    </p>
+                    <p style="color: #999; font-size: 14px; text-align: center;">This code expires in 1 hour.</p>
+                </div>
+            </body>
+        </html>
+        """
         
-                                                                       
+                                                
