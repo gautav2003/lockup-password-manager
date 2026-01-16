@@ -66,5 +66,15 @@ if request.method == 'POST':
         </body>
     </html>
     """
-    
-                
+
+    send_email(email, 'Lockup - Verify Your Email', email_body, is_html=True)
+
+    return jsonify({
+        'success' : True,
+        'message' : 'Signup successful! Check your email for verification code. ',
+        'email': email,
+        'user_id': user.id
+    }), 201
+
+return render_template('signup.html')
+
