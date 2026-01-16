@@ -159,5 +159,14 @@ def reset_ password():
 
     if user.verification_code != code:
         return jsonify({'success': False, 'massage': 'Invalid verification code'}), 400
-        
-                
+
+    if user.verification_code_expires < datetime.utcnow():
+        return jsonify({'success': False, 'message': 'Verification code expired'}), 400
+
+    user.password_hash = generate_password_hash(new_password)
+    user.verification_code = None
+    db.session.commit()
+
+    return jsonify({'success': True, 'message': 'Password reset successful'}), 200 
+
+               
