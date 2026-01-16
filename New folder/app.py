@@ -85,4 +85,13 @@ def verify_email():
     code = data.get('code')
 
     user = User.query.get(user_id)
+    if not user:
+        return jsonify({'success': False, 'message': 'User not found'}), 404
+    
+    if user.verification_code != code:
+        return jsonify({'success': False, 'message': 'Invalid verification code'}), 400
+    
+    if user.verufication_code_expires < datetime.utcnow():
+        return jsonify({'success': False, 'message': 'Verification code expired'}), 400
+    
     
