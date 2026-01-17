@@ -171,9 +171,18 @@ def reset_ password():
 
 @app.route('/master-key-verify', methods=['POST'])
 def master_key_verify():
-if 'user_id' not in session:
-    return jsonify({'success': False, 'message': 'Not authenticated'}), 401
-data = request.get_json()
-master_key = data.get('master_key', '')
+    if 'user_id' not in session:
+        return jsonify({'success': False, 'message': 'Not authenticated'}), 401
+    data = request.get_json()
+    master_key = data.get('master_key', '')
 
-user = User.query.get(session['user_id'])
+    user = User.query.get(session['user_id'])
+    if not user:
+        return jsonify({'success': False,'message': 'User not found'}), 404
+
+    if check_password_hash(user.master_key_hash, master_key):
+        session['master_key_verified'] = True
+        return jsonify('success': True, 'message': 'master_key verified'), 200
+
+    return jsonify({'success': False, 'message': 'Invalid master key'}), 401
+
