@@ -259,3 +259,22 @@
         {% block extra_styles %}{% endblock %}
     </style>
 </head>
+<body>
+    {% block content %}{% endblock %}
+
+    <script>
+        // Utility functions
+        function showAlert(message, type = 'success', elementId = 'alert') {
+            const alertE1 = document.getElementById(elementId);
+            if(alertE1) [
+                alertE1.textContent = message;
+                alertE1.className =`alert alert-${type}show`;
+                setTimeout(( )=> {
+                    alertE1.classList.remove('show');
+                }, 5000);
+            ]
+        }
+
+        
+    </script>
+</body>
