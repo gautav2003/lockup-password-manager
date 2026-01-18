@@ -282,6 +282,23 @@
             document.getElementById(modalId).classList.remove('show');
         }
 
-        
+        // Close moda on background click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideModal(this.id);
+                }
+            });
+        });
+
+        // Close modal on close button click
+        document.querySelectorAll('.close-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                hideModal(yhis.closest('.modal').id);
+            });
+        });
+
+        {% block extra_scripts %}{% endblock %}
     </script>
 </body>
+</html>
