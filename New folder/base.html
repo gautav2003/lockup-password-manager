@@ -132,6 +132,18 @@
             transition: all 0.3s ease;
         }
 
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: rgba(255, 68, 68, 0.05);
+            box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.1);
+
+        }
+
         
     </style>
 </head>
