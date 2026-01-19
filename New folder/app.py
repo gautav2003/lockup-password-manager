@@ -182,7 +182,7 @@ def master_key_verify():
 
     if check_password_hash(user.master_key_hash, master_key):
         session['master_key_verified'] = True
-        return jsonify('success': True, 'message': 'master_key verified'), 200
+        return jsonify({'success': True, 'message': 'master_key verified'}), 200
 
     return jsonify({'success': False, 'message': 'Invalid master key'}), 401
 
