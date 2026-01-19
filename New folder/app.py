@@ -7,13 +7,13 @@ def index():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-if request.method == 'POST':
-    data = request.get_json()
-    username = data.get('username','').strip()
-    email = data.get('email', '').strip()
-    password = data.get('password','')
-    confirm_password = data.get('confirm_password','')
-    master_key = data.get('master_key','')
+    if request.method == 'POST':
+        data = request.get_json()
+        username = data.get('username','').strip()
+        email = data.get('email', '').strip()
+        password = data.get('password','')
+        confirm_password = data.get('confirm_password','')
+        master_key = data.get('master_key','')
 
     # Validation
     if not all([username, email, password, confirm_password, master_key]):
@@ -186,3 +186,7 @@ def master_key_verify():
 
     return jsonify({'success': False, 'message': 'Invalid master key'}), 401
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
