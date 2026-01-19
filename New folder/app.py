@@ -113,7 +113,7 @@ def forgot_password():
         # Generate verification code
         verification_code = grenerate_verification_code()
         user.verification_code = verification_code
-        user.verification_code_exprires = datetime.utcnow() + timedelta( hours=1
+        user.verification_code_exprires = datetime.utcnow() + timedelta(hours=1)
         db.session.commit()
 
         # Send email
