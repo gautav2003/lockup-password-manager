@@ -42,7 +42,18 @@ def check_password_strength(password):
     else:
         feedback.append("Lowercase letter")
 
-    
+    if re.search(r'[A-Z]', password):
+        score += 1
+    else:
+        feedback.append("Uppercase letter")
+
+    if re.search(r'[0-9]', password):
+
+        score += 1
+    else:
+        feedback.append("Number")
+
+        
 
 # =================== AUTH ROUTES ====================
 @app.route('/')
