@@ -6,13 +6,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# =================== EMAIL CONFIGURATION ============
-
-EMAIL_ADDRESS = "your_email@gmail.com"
-EMAIL_PASSWORD = "your_app_password"
-
-def send_email(recipient_email, subject, body, is_html
-
 # =================== UTILITY FUNCTIONS ==============
 
 def generate_verification_code():
