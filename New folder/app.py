@@ -67,7 +67,16 @@ def check_password_strength(password):
     else:
         strength = 'Excellent'
 
-          
+    return {
+        'strength': strength,
+        'score': min(score, 5),
+        'feedback': feedback
+    } 
+
+def generate_password(length=16):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
 
 # =================== AUTH ROUTES ====================
 @app.route('/')
