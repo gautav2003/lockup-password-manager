@@ -31,6 +31,17 @@ def generate_verification_code():
 def check_password_strength(password):
     score = 0
     feedback = []
+
+    if len(password) >= 8:
+        score += 1
+    else:
+        feedback.append("At least 8 characters")
+
+    if re.search(r'[a-z]', password):
+        score += 1
+    else:
+        feedback.append("Lowercase letter")
+
     
 
 # =================== AUTH ROUTES ====================
