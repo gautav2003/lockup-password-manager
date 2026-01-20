@@ -4,7 +4,16 @@ EMAIL_ADDRESS = "your_email@gmail.com"
 EMAIL_PASSWORD = "your_app_password"
 
 def send_email(recipient_email, subject, body, is_html=False):
-    
+    try:
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = subject
+        msg['From'] = EMAIL_ADDRESS
+        msg['To'] = recipient_email
+
+        if is_html:
+            msg.attach(MIMEText(body, 'html'))
+             
+
 # =================== AUTH ROUTES ====================
 @app.route('/')
 def index():
