@@ -1,3 +1,11 @@
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your-secret-key-change-this'
+app.config['SQLALCHEMY_ DATABASE_URI'] = 'sqlite:///lockup.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
 # =================== EMAIL CONFIGURATION ============
 
 EMAIL_ADDRESS = "your_email@gmail.com"
@@ -77,6 +85,14 @@ def generate_password(length=16):
     characters = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(random.choice(characters) for _ in range(length))
     return password
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
 
 # =================== AUTH ROUTES ====================
 @app.route('/')
