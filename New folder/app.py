@@ -53,7 +53,21 @@ def check_password_strength(password):
     else:
         feedback.append("Number")
 
-        
+    if re.search(r'[!@#$%^&*()<>?":{}|<>]', password):
+        score += 2
+    else:
+        feedback.append("Spcial character")  
+
+    if score <= 1:
+        strength = 'Weak'
+    elif score <= 2:
+        strength = 'Medium'
+    elif score <= 4:
+        strength = 'Strong'
+    else:
+        strength = 'Excellent'
+
+          
 
 # =================== AUTH ROUTES ====================
 @app.route('/')
