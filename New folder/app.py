@@ -6,8 +6,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# =================== DATABASE MODELS ================
-
 # =================== EMAIL CONFIGURATION ============
 
 EMAIL_ADDRESS = "your_email@gmail.com"
