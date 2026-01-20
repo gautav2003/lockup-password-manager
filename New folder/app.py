@@ -12,7 +12,26 @@ def send_email(recipient_email, subject, body, is_html=False):
 
         if is_html:
             msg.attach(MIMEText(body, 'html'))
-             
+        else:
+            msg.attach(MIMEText(body, 'plain'))
+
+        with smplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            server.send_message(msg)
+        return True
+    except Exception as e:
+        print(f"Email sending error:{e}")
+        return False
+
+# =================== UTILITY FUNCTIONS ==============
+
+def generate_verification_code():
+    return ''.join(random.choices(string.digits, k=6))
+
+def check_password_strength(password):
+    score = 0
+    feedback = []
+    
 
 # =================== AUTH ROUTES ====================
 @app.route('/')
