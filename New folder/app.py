@@ -21,11 +21,7 @@ def send_email(recipient_email, subject, body, is_html=False):
         if is_html:
             msg.attach(MIMEText(body, 'html'))
         else:
-            msg.attach(MIMEText(body, 'plain'))
-
-        with smplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            
+        
 
 # =================== UTILITY FUNCTIONS ==============
 
