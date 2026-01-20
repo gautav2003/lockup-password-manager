@@ -1,4 +1,11 @@
-#==================== AUTH ROUTES ====================
+# =================== EMAIL CONFIGURATION ============
+
+EMAIL_ADDRESS = "your_email@gmail.com"
+EMAIL_PASSWORD = "your_app_password"
+
+def send_email(recipient_email, subject, body, is_html=False):
+    
+# =================== AUTH ROUTES ====================
 @app.route('/')
 def index():
     if 'user_id' in session:
