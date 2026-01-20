@@ -25,11 +25,7 @@ def send_email(recipient_email, subject, body, is_html=False):
 
         with smplib.SMTP_SSL('smtp.gmail.com', 465) as server:
             server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.send_message(msg)
-        return True
-    except Exception as e:
-        print(f"Email sending error:{e}")
-        return False
+            
 
 # =================== UTILITY FUNCTIONS ==============
 
